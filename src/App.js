@@ -8,9 +8,12 @@ function App (){
     let [data, setData] = useState([])
 
     const addedEventDataType = (data1)=>{
-        console.log('trying too add data'+JSON.stringify(data1));
-        setData([...data, data1]);
-        console.log('hva har jeg i data nå: '+JSON.stringify(data))
+        setData(currentData =>  {
+            console.log('trying too add data: ', data1);
+            console.log('hva har jeg i data fra før: ', currentData);
+            console.log('hva har jeg har i data etter oppdatering av state: ', [...currentData, data1]);
+            return [...currentData, data1]
+        });
     }
 
     return(

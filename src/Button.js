@@ -46,14 +46,14 @@ const Button = (addData)=>{
                             howManyOrders: raw.length,
                             topPurchase: highestPurchaser
                         });
-                        addData.addData(JSON.stringify({
+                        addData.addData({
                             second: `${chosenMin}`,
                             highest: `${high}`,
                             lowest: `${low}`,
                             volum: `${volume}`,
                             howManyOrders: `${raw.length}`,
                             topPurchase: `${highestPurchaser}`
-                        }))
+                        })
                         //husk å skrive navnet på funkajsonen i proppen :) tok lang tid å finne ut av det: https://stackoverflow.com/questions/59663809/react-typeerror-x-is-not-a-function
 
 
