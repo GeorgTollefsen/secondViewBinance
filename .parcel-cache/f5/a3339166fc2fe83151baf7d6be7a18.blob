@@ -1,0 +1,100 @@
+var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _jsxFileName = "C:\\Users\\Georg Tollefsen\\Desktop\\secondView\\src\\Button.js";
+  const Button = () => {
+    let high = 0;
+    let low = 10;
+    let volume = 0;
+    let orders = 0;
+    let highestPurchaser = 0;
+    let array = [];
+    function getIt(tokenName, chosenMin, start, end) {
+      chosenMin = chosenMin.toLocaleString('en-US', {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+      });
+      start = start.toLocaleString('en-US', {
+        minimumIntegerDigits: 2,
+        useGrouping: false
+      });
+      // console.log('getit sier: '+tokenName)
+      // fetch(`https://api.binance.com/api/v3/aggTrades?symbol=PIVXBTC&startTime=16169508${chosenMin}000&endTime=16169508${start}000&limit=1000`)
+      fetch(`https://api.binance.com/api/v3/aggTrades?symbol=PIVXBTC&startTime=1616950800500&endTime=1616950801000&limit=1000`).then(result => {
+        result.json().then(raw => {
+          for (let i = 0; i < raw.length; i++) {
+            if (raw[i].p > high) {
+              high = raw[i].p;
+            }
+            if (raw[i].p < low) {
+              low = raw[i].p;
+            }
+            if (raw[i].p * raw[i].q > highestPurchaser) {
+              highestPurchaser = raw[i].p * raw[i].q;
+            }
+            volume += raw[i].p * raw[i].q;
+          }
+          array.push({
+            second: chosenMin,
+            highest: `${high}`,
+            lowest: low,
+            volum: volume,
+            howManyOrders: raw.length,
+            topPurchase: highestPurchaser
+          });
+        }).catch(err => console.log(err));
+      }).catch(err => console.log(err));
+      high = 0;
+      low = 10;
+      volume = 0;
+      orders = 0;
+      highestPurchaser = 0;
+    }
+    function populate() {
+      for (let i = 0; i < array.length; i++) {
+        document.getElementById('root').innerHTML += `<p>${array[i].second}: High: ${array[i].highest}, low:${array[i].lowest}, Volume:${array[i].volum}, highest Purchase:${array[i].topPurchase}  Orders: ${array[i].howManyOrders}</p>`;
+      }
+      let string = JSON.stringify(array);
+      console.log(string);
+      fs.mkdir('/home', function () {
+        fs.writeFile('/home/Data.json', string);
+      });
+    }
+    async function onclickProp() {
+      let tokenName = document.getElementById('tokenName').value;
+      let getTime = document.getElementById('timeChosen').value;
+      let getSeconds = document.getElementById('seconds').value;
+      let timeStamp = new Date(getTime).getTime();
+      for (let i = 0; i < 2; i++) {
+        getIt(tokenName.toUpperCase(), i, i + 1);
+        await new Promise(r => setTimeout(r, 500));
+      }
+      populate();
+    }
+    return (
+      /*#__PURE__*/_reactDefault.default.createElement("button", {
+        onClick: onclickProp,
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 89,
+          columnNumber: 9
+        }
+      }, "OK")
+    );
+  };
+  _c = Button;
+  exports.default = Button;
+  var _c;
+  $RefreshReg$(_c, "Button");
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}

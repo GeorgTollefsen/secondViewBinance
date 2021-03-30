@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PumpWatcher</title>
+</head>
+<body>
+<div id="root"></div>
+<!--<div style="position: absolute; width: 500px; height: 500px;">-->
+<!--<canvas id="myChart" width="200" height="200"></canvas>-->
+<!--</div>-->
+<script src="d26b03374973c7a2a151878b2e21a00f"></script>
+<script src="6f201fadec7df04af3e401e37554ffd5" data-parcel-key="0d10397eb67bec2c8deebb6bd22b8d14">
+</script>
+</body>
+</html>
