@@ -1054,7 +1054,7 @@ try {
   var _reactDomDefault = _parcelHelpers.interopDefault(_reactDom);
   var _App = require("./App");
   var _AppDefault = _parcelHelpers.interopDefault(_App);
-  var _jsxFileName = "C:\\Users\\Georg Tollefsen\\Desktop\\secondView\\src\\index.js";
+  var _jsxFileName = "C:\\Users\\jjtg_\\Repositories\\secondViewBinance\\src\\index.js";
   _reactDomDefault.default.render(/*#__PURE__*/_reactDefault.default.createElement(_reactDefault.default.StrictMode, {
     __self: undefined,
     __source: {
@@ -26287,70 +26287,71 @@ try {
   var _SecondsFieldDefault = _parcelHelpers.interopDefault(_SecondsField);
   var _Button = require("./Button");
   var _ButtonDefault = _parcelHelpers.interopDefault(_Button);
-  var _jsxFileName = "C:\\Users\\Georg Tollefsen\\Desktop\\secondView\\src\\App.js", _s = $RefreshSig$();
-  function App() {
+  var _jsxFileName = "C:\\Users\\jjtg_\\Repositories\\secondViewBinance\\src\\App.js", _s = $RefreshSig$();
+  const App = () => {
     _s();
-    let [data, setData] = _react.useState([]);
-    const addedEventDataType = data1 => {
-      console.log('trying too add data' + JSON.stringify(data1));
-      setData([...data, data1]);
-      console.log('hva har jeg i data nå: ' + JSON.stringify(data));
+    const [data, setData] = _react.useState([]);
+    _react.useEffect(() => {
+      console.log("Data state has been updated: ", data);
+    }, [data]);
+    const onClick = updatedData => {
+      setData(data => [...data, ...updatedData]);
     };
     return (
       /*#__PURE__*/_reactDefault.default.createElement("div", {
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 17,
-          columnNumber: 9
-        }
-      }, /*#__PURE__*/_reactDefault.default.createElement("h1", {
-        __self: this,
-        __source: {
-          fileName: _jsxFileName,
-          lineNumber: 18,
-          columnNumber: 9
-        }
-      }, "Pump Watching"), /*#__PURE__*/_reactDefault.default.createElement("h3", {
-        __self: this,
+        __self: undefined,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 19,
-          columnNumber: 13
+          columnNumber: 9
         }
-      }, "Enter details:"), /*#__PURE__*/_reactDefault.default.createElement(_FieldsDefault.default, {
-        __self: this,
+      }, /*#__PURE__*/_reactDefault.default.createElement("h1", {
+        __self: undefined,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 20,
           columnNumber: 13
         }
-      }), /*#__PURE__*/_reactDefault.default.createElement(_ButtonDefault.default, {
-        addData: addedEventDataType,
-        __self: this,
+      }, "Pump Watching"), /*#__PURE__*/_reactDefault.default.createElement("h3", {
+        __self: undefined,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 21,
           columnNumber: 13
         }
-      }), /*#__PURE__*/_reactDefault.default.createElement(_DateFieldsDefault.default, {
-        __self: this,
+      }, "Enter details:"), /*#__PURE__*/_reactDefault.default.createElement(_FieldsDefault.default, {
+        __self: undefined,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 22,
           columnNumber: 13
         }
-      }), /*#__PURE__*/_reactDefault.default.createElement(_SecondsFieldDefault.default, {
-        __self: this,
+      }), /*#__PURE__*/_reactDefault.default.createElement(_ButtonDefault.default, {
+        onClick: onClick,
+        __self: undefined,
         __source: {
           fileName: _jsxFileName,
           lineNumber: 23,
           columnNumber: 13
         }
+      }), /*#__PURE__*/_reactDefault.default.createElement(_DateFieldsDefault.default, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 24,
+          columnNumber: 13
+        }
+      }), /*#__PURE__*/_reactDefault.default.createElement(_SecondsFieldDefault.default, {
+        __self: undefined,
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 25,
+          columnNumber: 13
+        }
       }))
     );
-  }
-  _s(App, "hhQqYsxLIv1exGOzUvDGOVv6fXw=");
+  };
+  _s(App, "IEMTtLVFIuToo7X/raQbJAxzNQU=");
   _c = App;
   exports.default = App;
   var _c;
@@ -26361,7 +26362,7 @@ try {
   window.$RefreshSig$ = prevRefreshSig;
 }
 
-},{"react":"3b2NM","./Fields":"3aNCj","./DateFields":"1nwnj","./SecondsField":"TYNzZ","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f","./Button":"3a7i9"}],"3aNCj":[function(require,module,exports) {
+},{"react":"3b2NM","./Fields":"3aNCj","./DateFields":"1nwnj","./SecondsField":"TYNzZ","./Button":"3a7i9","@parcel/transformer-js/lib/esmodule-helpers.js":"5gA8y","../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"4Jj4f"}],"3aNCj":[function(require,module,exports) {
 var helpers = require("../node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -26371,7 +26372,7 @@ try {
   _parcelHelpers.defineInteropFlag(exports);
   var _react = require("react");
   var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _jsxFileName = "C:\\Users\\Georg Tollefsen\\Desktop\\secondView\\src\\Fields.js";
+  var _jsxFileName = "C:\\Users\\jjtg_\\Repositories\\secondViewBinance\\src\\Fields.js";
   const Fields = () => {
     return (
       /*#__PURE__*/_reactDefault.default.createElement(_reactDefault.default.Fragment, null, /*#__PURE__*/_reactDefault.default.createElement("label", {
@@ -26612,7 +26613,7 @@ try {
   _parcelHelpers.defineInteropFlag(exports);
   var _react = require('react');
   var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _jsxFileName = "C:\\Users\\Georg Tollefsen\\Desktop\\secondView\\src\\DateFields.js";
+  var _jsxFileName = "C:\\Users\\jjtg_\\Repositories\\secondViewBinance\\src\\DateFields.js";
   function DatTime() {
     return (
       /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -26661,7 +26662,7 @@ try {
   _parcelHelpers.defineInteropFlag(exports);
   var _react = require('react');
   var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _jsxFileName = "C:\\Users\\Georg Tollefsen\\Desktop\\secondView\\src\\SecondsField.js";
+  var _jsxFileName = "C:\\Users\\jjtg_\\Repositories\\secondViewBinance\\src\\SecondsField.js";
   function SecondsField() {
     return (
       /*#__PURE__*/_reactDefault.default.createElement("div", {
@@ -26710,15 +26711,15 @@ try {
   _parcelHelpers.defineInteropFlag(exports);
   var _react = require('react');
   var _reactDefault = _parcelHelpers.interopDefault(_react);
-  var _jsxFileName = "C:\\Users\\Georg Tollefsen\\Desktop\\secondView\\src\\Button.js";
-  const Button = addData => {
-    let high = 0;
-    let low = 10;
-    let volume = 0;
-    let orders = 0;
-    let highestPurchaser = 0;
-    let array = [];
-    function getIt(tokenName, chosenMin, start, end) {
+  var _jsxFileName = "C:\\Users\\jjtg_\\Repositories\\secondViewBinance\\src\\Button.js";
+  const Button = ({onClick}) => {
+    const collectedData = [];
+    async function getIt(tokenName, chosenMin, start, end) {
+      let high = 0;
+      let low = 10;
+      let volume = 0;
+      let orders = 0;
+      let highestPurchaser = 0;
       chosenMin = chosenMin.toLocaleString('en-US', {
         minimumIntegerDigits: 2,
         useGrouping: false
@@ -26727,50 +26728,35 @@ try {
         minimumIntegerDigits: 2,
         useGrouping: false
       });
-      // console.log('getit sier: '+tokenName)
-      fetch(`https://api.binance.com/api/v3/aggTrades?symbol=PIVXBTC&startTime=16169508${chosenMin}000&endTime=16169508${start}000&limit=1000`).// fetch(`https://api.binance.com/api/v3/aggTrades?symbol=PIVXBTC&startTime=1616950804501&endTime=1616950805000&limit=1000`)
-      then(result => {
-        result.json().then(raw => {
-          for (let i = 0; i < raw.length; i++) {
-            if (raw[i].p > high) {
-              high = raw[i].p;
-            }
-            if (raw[i].p < low) {
-              low = raw[i].p;
-            }
-            if (raw[i].p * raw[i].q > highestPurchaser) {
-              highestPurchaser = raw[i].p * raw[i].q;
-            }
-            volume += raw[i].p * raw[i].q;
-          }
-          array.push({
-            second: chosenMin,
-            highest: `${high}`,
-            lowest: low,
-            volum: volume,
-            howManyOrders: raw.length,
-            topPurchase: highestPurchaser
-          });
-          addData.addData(JSON.stringify({
-            second: `${chosenMin}`,
-            highest: `${high}`,
-            lowest: `${low}`,
-            volum: `${volume}`,
-            howManyOrders: `${raw.length}`,
-            topPurchase: `${highestPurchaser}`
-          }));
-        }).catch(err => console.log(err));
-      }).catch(err => console.log(err));
-      high = 0;
-      low = 10;
-      volume = 0;
-      orders = 0;
-      highestPurchaser = 0;
+      const response = await fetch(`https://api.binance.com/api/v3/aggTrades?symbol=PIVXBTC&startTime=16169508${chosenMin}000&endTime=16169508${start}000&limit=1000`).then(result => result.json()).catch(console.error);
+      const formattedData = response.map(it => {
+        high = Math.max(it.p, high);
+        low = Math.min(it.p, low);
+        highestPurchaser = Math.max(it.p * it.q, highestPurchaser);
+        volume = it.p * it.q;
+        return {
+          second: chosenMin,
+          highest: high,
+          lowest: low,
+          volum: volume,
+          howManyOrders: response.length,
+          topPurchase: highestPurchaser
+        };
+      });
+      onClick(formattedData);
+      return formattedData;
     }
     function populate() {
-      for (let i = 0; i < array.length; i++) {
-        document.getElementById('root').innerHTML += `<p>${array[i].second}: High: ${array[i].highest}, low:${array[i].lowest}, Volume:${array[i].volum}, highest Purchase:${array[i].topPurchase}  Orders: ${array[i].howManyOrders}</p>`;
-      }
+      collectedData.forEach((it, idx) => {
+        document.getElementById('root').innerHTML += `<p>${idx + 1}. 
+                    ${it.second}: 
+                    High: ${it.highest}, 
+                    Low: ${it.lowest}, 
+                    Volume: ${it.volum}, 
+                    Highest Purchase: ${it.topPurchase} 
+                    Orders: ${it.howManyOrders}
+                </p>`;
+      });
     }
     async function onclickProp() {
       let tokenName = document.getElementById('tokenName').value;
@@ -26778,8 +26764,7 @@ try {
       let getSeconds = document.getElementById('seconds').value;
       let timeStamp = new Date(getTime).getTime();
       for (let i = 0; i < 2; i++) {
-        getIt(tokenName.toUpperCase(), i, i + 1);
-        await new Promise(r => setTimeout(r, 500));
+        collectedData.push(...await getIt(tokenName.toUpperCase(), i, i + 1));
       }
       populate();
     }
@@ -26789,7 +26774,7 @@ try {
         __self: undefined,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 97,
+          lineNumber: 77,
           columnNumber: 9
         }
       }, "OK")
