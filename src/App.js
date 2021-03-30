@@ -12,7 +12,7 @@ const App = () => {
     }, [data])
 
     const onClick = (updatedData) => {
-        setData((data) => [...data, ...updatedData]);
+        setData((data) => [...data, updatedData]);
     }
 
     return (

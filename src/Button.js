@@ -1,20 +1,14 @@
 import React from 'react';
 
-const Button = ({onClick})=>{
+const Button = ({onClick}) => {
     const collectedData = [];
 
     async function getIt(tokenName, chosenMin, start, end) {
-        let high = 0;
-        let low = 10;
-        let volume = 0;
-        let orders = 0;
-        let highestPurchaser = 0;
-
-        chosenMin = chosenMin.toLocaleString('en-US',{
+        chosenMin = chosenMin.toLocaleString('en-US', {
             minimumIntegerDigits: 2,
             useGrouping: false
         });
-        start = start.toLocaleString('en-US',{
+        start = start.toLocaleString('en-US', {
             minimumIntegerDigits: 2,
             useGrouping: false
         });
@@ -23,28 +17,25 @@ const Button = ({onClick})=>{
             .then(result => result.json())
             .catch(console.error)
 
-        const formattedData = response.map((it) => {
-            high = Math.max(it.p, high);
-            low = Math.min(it.p, low);
-            highestPurchaser = Math.max(it.p*it.q, highestPurchaser)
-            volume = it.p * it.q
-            return {
-                second: chosenMin,
-                highest: high,
-                lowest: low,
-                volum: volume,
-                howManyOrders: response.length,
-                topPurchase: highestPurchaser
-            }
-        });
+        const pValues = response.flatMap((it) => it.p);
+        const purchaseVolumes = response.flatMap((it) => parseFloat(it.p) * parseFloat(it.q));
+
+        const formattedData = {
+            second: chosenMin,
+            highest: Math.max(...pValues),
+            lowest: Math.min(...pValues),
+            volum: purchaseVolumes.reduce((acc, cur) => acc + cur, 0),
+            howManyOrders: response.length,
+            topPurchase: Math.max(...purchaseVolumes)
+        }
         onClick(formattedData);
         return formattedData;
     }
 
-    function populate(){
+    function populate() {
         collectedData.forEach((it, idx) => {
             document.getElementById('root').innerHTML +=
-                `<p>${idx+1}. 
+                `<p>${idx + 1}. 
                     ${it.second}: 
                     High: ${it.highest}, 
                     Low: ${it.lowest}, 
@@ -58,14 +49,14 @@ const Button = ({onClick})=>{
         // addData.addData(array)
     }
 
-    async function onclickProp(){
+    async function onclickProp() {
         let tokenName = document.getElementById('tokenName').value;
         let getTime = document.getElementById('timeChosen').value;
         let getSeconds = document.getElementById('seconds').value;
         let timeStamp = new Date(getTime).getTime();
 
-        for (let i=0; i<2; i++){
-            collectedData.push(...await getIt(tokenName.toUpperCase(), i, i+1));
+        for (let i = 0; i < 2; i++) {
+            collectedData.push(await getIt(tokenName.toUpperCase(), i, i + 1));
             //await new Promise(r => setTimeout(r, 500));
         }
 
@@ -73,7 +64,7 @@ const Button = ({onClick})=>{
 
     }
 
-    return(
+    return (
         <button onClick={onclickProp}>OK</button>
     )
 }
